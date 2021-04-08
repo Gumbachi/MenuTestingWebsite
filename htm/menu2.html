@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Metro 4 -->
+	<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+	<!-- css from https://phppot.com/css/multilevel-dropdown-menu-with-pure-css/  -->
+    <style> 
+		.parent {display: block;position: relative;float: left;line-height: 30px;background-color: #4FA0D8;border-right:#CCC 1px solid;}
+		.parent a{margin: 10px;color: #FFFFFF;text-decoration: none;}
+		.parent:hover > ul {display:block;position:absolute;}
+		.child {display: none;}
+		.child li {list-style-type: none;background-color: #E4EFF7;line-height: 30px;border-bottom:#CCC 1px solid;border-right:#CCC 1px solid; width:100%;}
+		.child li a{color: #000000;}
+		ul{list-style: none;margin: 0;padding: 0px; min-width:10em;}
+		ul ul ul{left: 100%;top: 0;margin-left:0px;}
+		li:hover {background-color: #95B4CA;}
+		.parent li:hover {background-color: #F0F0F0;}
+		.expand{font-size:12px;float:right;margin-right:5px;}
+</style>
+  </head>
+  <body>
+    <div class="pos-fixed pos-top-center">
+        <ul id="menu">
+	<li class="parent"><a href="#">Option 1</a>
+	<ul class="child">
+		<li class="parent"><a href="#">Option 1<span class="expand">&raquo;</span></a>
+			<ul class="child">
+			<li><a href="#">Option 1</a></li>
+			<li><a href="#">Option 2</a></li>
+			<li><a href="#">Option 3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Option 2</a></li>
+		<li class="parent"><a href="#">Option 3<span class="expand">&raquo;</span></a>
+		<ul class="child">
+			<li><a href="#">Option 1</a></li>
+			<li><a href="#">Option 2</a></li>
+			<li><a href="#">Option 3</a></li>
+			<li><a href="#">Option 4</a></li>
+			</ul>
+		<li><a href="#">Option 4</a></li>
+	</ul>
+	</li>
+	<li class="parent"><a href="#">Option 2</a>
+	<ul class="child">			
+		<li><a href="#">Option 1</a></li>
+		<li><a href="#">Option 2</a></li>
+		<li class="parent"><a href="#">Option 3<span class="expand">&raquo;</span></a>
+			<ul class="child">
+			<li><a href="#" nowrap>Option 1</a></li>
+			<li><a href="#" nowrap>Option 2</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Option 4</a></li>
+	</ul>
+	</li>
+	<li class="parent"><a href="#">Option 3</a>
+	<ul class="child">			
+		<li><a href="#">Option 1</a></li>
+		<li class="parent"><a href="#">Option 2<span class="expand">&raquo;</span></a>
+			<ul class="child">
+			<li><a href="#">Option 1</a></li>
+			<li><a href="#">Option 2</a></li>
+			<li><a href="#">Option 3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Option 3</a>
+		</li>
+		<li><a href="#">Option 4</a></li>
+	</ul>
+	</li>
+</ul>
+    </div>
+    
+    <div class="pos-fixed pos-center">
+        <button class="button primary large">Start</button>
+    </div>
+    <div class="pos-fixed pos-bottom-center">
+        <h1>Find: Task</h1>
+    </div>
+    <!-- Metro 4 -->
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+  </body>
+</html>
