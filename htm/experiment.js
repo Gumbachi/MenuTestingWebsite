@@ -2,7 +2,6 @@ let menuOneItems = ["Option1a", "Option2c", "Option4d", "Option5e", "Option1e", 
 let menuTwoItems = [];
 let menuThreeItems = [];
 var taskNumber = 0;
-var currentMenu = 1;
 var startTime;
 var endTime;
 var finalTime;
@@ -44,34 +43,28 @@ function nextTask(menu) {
     getEndTimeSeconds();
     if (taskNumber < 9) {
         getFinalTime();
-        window.alert(finalTime);
         taskNumber++;
         document.getElementById("task").innerHTML = "Task: " + menu[taskNumber];
         createStartDialog();
         document.getElementById("task2").innerHTML = "Task: " + menu[taskNumber];
     } else {
         getFinalTime();
-        window.alert(finalTime);
-        if (getCookie(currentMenuCookie) == ""){
-            setCookie(currentMenuCookie, currentMenu, 1);
-        }
-
-        if (getCookie(currentMenuCookie) == 1) {
-            setCookie(menuOneTimes, menuTimes, 1);
-            currentMenu++;
-            setCookie(currentMenuCookie, currentMenu, 1);
+        if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=1'))) {
+            document.cookie = "menuOneTimes=" + menuTimes;
             window.location.href = "menu2.html";
-        } else if (getCookie(currentMenuCookie) == 2) {
-            setCookie(menuTwoTimes, menuTimes, 1);
-            currentMenu++;
-            setCookie(currentMenuCookie, currentMenu, 1);
+        } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=2'))) {
+            document.cookie = "menuTwoTimes=" + menuTimes;
             window.location.href = "menu3.html";
-        } else {
-            setCookie(menuThreeTimes, menuTimes, 1);
+        } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=3'))) {
+            document.cookie = "menuThreeTimes=" + menuTimes;
             createEndDialog();
             // send data to mongo db here 
         }
     }
+}
+
+function setMenuCookie(currentMenu) {
+    document.cookie = "currentMenuCookie=" + currentMenu;
 }
 
 // create dialog box for starting the experiment
@@ -99,28 +92,4 @@ function createEndDialog() {
         content: "<h3>Thank You for participating</h3>",
         closeButton: true
     });
-}
-
-// functions to get and set cookies
-//https://www.w3schools.com/js/js_cookies.asp
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-//https://www.w3schools.com/js/js_cookies.asp
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-        }
-    }
-    return "";
 }
