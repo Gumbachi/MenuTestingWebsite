@@ -77,9 +77,13 @@
 </ul>
     </div>
     
-    <div class="pos-fixed pos-center">
-        <button class="button primary large">Start</button>
-    </div>
+    <script>
+        window.onload = function() {
+            setMenuCookie(2);
+            createStartDialog("task");
+        }
+    </script>
+
     <div class="pos-fixed pos-bottom-center">
         <h1>Find: Task</h1>
     </div>

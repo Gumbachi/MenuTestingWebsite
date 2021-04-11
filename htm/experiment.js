@@ -69,10 +69,10 @@ function setMenuCookie(currentMenu) {
 
 // create dialog box for starting the experiment
 //https://metroui.org.ua/dialog.html 
-function createStartDialog() {
+function createStartDialog(task) {
     Metro.dialog.create({
         title: "Start Experiment",
-        content: "<h3 id=\"task2\">Find: Option1a</h3>",
+        content: "<h3 id=\"task2\">Find:" + task + "</h3>",
         actions: [
             {
                 caption: "Start",
