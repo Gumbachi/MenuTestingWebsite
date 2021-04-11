@@ -33,8 +33,18 @@
         <h1>Find: Option3</h1>
         <p class="text-leader">In this example "Option3" is your task. You can try to find it in the menu given above.</p>
         <h3>Starting</h3>
-        <p class="text-leader">To start the experiment press the start button in the middle of the screen. It will look like this. YOU NEED TO PRESS THE START BUTTON FOR EACH TASK</p><br>
-        <button class="button primary large">Start</button>
+        <p class="text-leader">To start the experiment press the start button in the dialog box present in the middle of the screen. It will look like this.</p><br>
+        <div class="dialog" data-role="dialog" id="demoDialog1">
+          <div class="dialog-title">Start Experiment</div>
+          <div class="dialog-content">
+              <h3>Find: Option3</h3>
+          </div>
+          <div class="dialog-actions">
+              <button class="button primary large js-dialog-close">Start</button>
+          </div>
+        </div>
+        <button class="button primary" onclick="Metro.dialog.open('#demoDialog1')">Open dialog</button>
+        <p class="text-leader">The dialog box also shows the current task.</p>
         <h3>When you are done with looking at the instructions, click the Start Experiment button to move to the first menu.</h3>
     </div>
     <div class="pos-fixed pos-bottom-center">
