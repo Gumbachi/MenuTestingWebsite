@@ -7,6 +7,7 @@
 
     <!-- Metro 4 -->
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <script src="experiment.js"></script>
   </head>
   <body>
     <div class="pos-fixed pos-top-center">
@@ -14,64 +15,62 @@
             <li>
                 <a href="#" class="dropdown-toggle">Option1</a>
                 <ul class="d-menu" data-role="dropdown">
-                    <li><a href="#">Option1</a></li>
-                    <li><a href="#">Option2</a></li>
-                    <li><a href="#">Option3</a></li>
-                    <li><a href="#">Option4</a></li>
-                    <li><a href="#">Option5</a></li>
+                    <li><a id="option1a" onclick="checkMenuItem(this.id, menuOneItems)">Option1a</a></li>
+                    <li><a id="option2a" onclick="checkMenuItem(this.id, menuOneItems)">Option2a</a></li>
+                    <li><a id="option3a" onclick="checkMenuItem(this.id, menuOneItems)">Option3a</a></li>
+                    <li><a id="option4a" onclick="checkMenuItem(this.id, menuOneItems)">Option4a</a></li>
+                    <li><a id="option5a" onclick="checkMenuItem(this.id, menuOneItems)">Option5a</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#" class="dropdown-toggle">Option2</a>
                 <ul class="d-menu" data-role="dropdown">
-                    <li><a href="#">Option1</a></li>
-                    <li><a href="#">Option2</a></li>
-                    <li><a href="#">Option3</a></li>
-                    <li><a href="#">Option4</a></li>
-                    <li><a href="#">Option5</a></li>
+                    <li><a id="Option1b" onclick="checkMenuItem(this.id, menuOneItems)">Option1b</a></li>
+                    <li><a id="option2b" onclick="checkMenuItem(this.id, menuOneItems)">Option2b</a></li>
+                    <li><a id="option3b" onclick="checkMenuItem(this.id, menuOneItems)">Option3b</a></li>
+                    <li><a id="option4b" onclick="checkMenuItem(this.id, menuOneItems)">Option4b</a></li>
+                    <li><a id="option5b" onclick="checkMenuItem(this.id, menuOneItems)">Option5b</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#" class="dropdown-toggle">Option3</a>
                 <ul class="d-menu" data-role="dropdown">
-                    <li><a href="#">Option1</a></li>
-                    <li><a href="#">Option2</a></li>
-                    <li><a href="#">Option3</a></li>
-                    <li><a href="#">Option4</a></li>
-                    <li><a href="#">Option5</a></li>
+                    <li><a id="option1c" onclick="checkMenuItem(this.id, menuOneItems)">Option1c</a></li>
+                    <li><a id="option2c" onclick="checkMenuItem(this.id, menuOneItems)">Option2c</a></li>
+                    <li><a id="option3c" onclick="checkMenuItem(this.id, menuOneItems)">Option3c</a></li>
+                    <li><a id="option4c" onclick="checkMenuItem(this.id, menuOneItems)">Option4c</a></li>
+                    <li><a id="option5c" onclick="checkMenuItem(this.id, menuOneItems)">Option5c</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#" class="dropdown-toggle">Option4</a>
                 <ul class="d-menu" data-role="dropdown">
-                    <li><a href="#">Option1</a></li>
-                    <li><a href="#">Option2</a></li>
-                    <li><a href="#">Option3</a></li>
-                    <li><a href="#">Option4</a></li>
-                    <li><a href="#">Option5</a></li>
+                    <li><a id="option1d" onclick="checkMenuItem(this.id, menuOneItems)">Option1d</a></li>
+                    <li><a id="option2d" onclick="checkMenuItem(this.id, menuOneItems)">Option2d</a></li>
+                    <li><a id="option3d" onclick="checkMenuItem(this.id, menuOneItems)">Option3d</a></li>
+                    <li><a id="option4d" onclick="checkMenuItem(this.id, menuOneItems)">Option4d</a></li>
+                    <li><a id="option5d" onclick="checkMenuItem(this.id, menuOneItems)">Option5d</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#" class="dropdown-toggle">Option5</a>
                 <ul class="d-menu" data-role="dropdown">
-                    <li><a href="#">Option1</a></li>
-                    <li><a href="#">Option2</a></li>
-                    <li><a href="#">Option3</a></li>
-                    <li><a href="#">Option4</a></li>
-                    <li><a href="#">Option5</a></li>
+                    <li><a id="option1e" onclick="checkMenuItem(this.id, menuOneItems)">Option1e</a></li>
+                    <li><a id="option2e" onclick="checkMenuItem(this.id, menuOneItems)">Option2e</a></li>
+                    <li><a id="option3e" onclick="checkMenuItem(this.id, menuOneItems)">Option3e</a></li>
+                    <li><a id="option4e" onclick="checkMenuItem(this.id, menuOneItems)">Option4e</a></li>
+                    <li><a id="option5e" onclick="checkMenuItem(this.id, menuOneItems)">Option5e</a></li>
                 </ul>
             </li>
         </ul>
     </div>
     
     <div class="pos-fixed pos-center">
-        <button class="button primary large">Start</button>
+        <button class="button primary large" onclick="getStartTimeSeconds()">Start</button>
+        <h3 id="start_response"></h3>
     </div>
     <div class="pos-fixed pos-bottom-center">
-        <h1>Find: Task</h1>
-    </div>
-    <div class="pos-fixed pos-bottom-right">
-        <a class="button primary" href="menu2.html">Next Menu</a>
+        <h1 id="task">Find: Option1a</h1>
     </div>
     <!-- Metro 4 -->
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
