@@ -1,6 +1,6 @@
 let menuOneItems = ["Option1a", "Option2c", "Option4d", "Option5e", "Option1e", "Option3c", "Option4a", "Option2a", "Option2b", "Option3b"];
 let menuTwoItems = [];
-let menuThreeItems = [];
+let menuThreeItems = ["Option 2d", "Option 1e", "Option 2c", "Option 5a", "Option 4e", "Option 3b", "Option 5a", "Option 1d", "Option 4c", "Option 4a"];
 var taskNumber = 0;
 var startTime;
 var endTime;
