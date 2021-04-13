@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Metro 4 -->
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <script src="experiment.js"></script>
+    <style>
+        /* Dropdown Button */
+        .dbtn {
+            background-color: white;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dd {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .ddc {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .ddc a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Change color of dropdown links on hover */
+        .ddc a:hover {background-color: lightgrey;}
+
+        /* Show the dropdown menu on hover */
+        .dd:hover .ddc {display: block;}
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dd:hover .dbtn {background-color: lightgrey;}
+    </style>
+  </head>
+  <body>
+    <div class="pos-fixed pos-top-center">
+        <div class="dd">
+            <button href="#" class="dbtn">Option1 <span>&#x25BE;</span></button>
+            <div class="ddc">
+                <a id="option1a" onclick="checkMenuItem(this.id, menuOneItems)">Option1a</a>
+                <a id="option2a" onclick="checkMenuItem(this.id, menuOneItems)">Option2a</a>
+                <a id="option3a" onclick="checkMenuItem(this.id, menuOneItems)">Option3a</a>
+                <a id="option4a" onclick="checkMenuItem(this.id, menuOneItems)">Option4a</a>
+                <a id="option5a" onclick="checkMenuItem(this.id, menuOneItems)">Option5a</a>
+            </div>
+        </div>
+        <div class="dd">
+            <button href="#" class="dbtn">Option2 <span>&#x25BE;</span></button>
+            <div class="ddc">
+                <a id="option1a" onclick="checkMenuItem(this.id, menuOneItems)">Option1a</a>
+                <a id="option2a" onclick="checkMenuItem(this.id, menuOneItems)">Option2a</a>
+                <a id="option3a" onclick="checkMenuItem(this.id, menuOneItems)">Option3a</a>
+                <a id="option4a" onclick="checkMenuItem(this.id, menuOneItems)">Option4a</a>
+                <a id="option5a" onclick="checkMenuItem(this.id, menuOneItems)">Option5a</a>
+            </div>
+        </div>
+        <div class="dd">
+            <button href="#" class="dbtn">Option3 <span>&#x25BE;</span></button>
+            <div class="ddc">
+                <a id="option1a" onclick="checkMenuItem(this.id, menuOneItems)">Option1a</a>
+                <a id="option2a" onclick="checkMenuItem(this.id, menuOneItems)">Option2a</a>
+                <a id="option3a" onclick="checkMenuItem(this.id, menuOneItems)">Option3a</a>
+                <a id="option4a" onclick="checkMenuItem(this.id, menuOneItems)">Option4a</a>
+                <a id="option5a" onclick="checkMenuItem(this.id, menuOneItems)">Option5a</a>
+            </div>
+        </div>
+        <div class="dd">
+            <button href="#" class="dbtn">Option4 <span>&#x25BE;</span></button>
+            <div class="ddc">
+                <a id="option1a" onclick="checkMenuItem(this.id, menuOneItems)">Option1a</a>
+                <a id="option2a" onclick="checkMenuItem(this.id, menuOneItems)">Option2a</a>
+                <a id="option3a" onclick="checkMenuItem(this.id, menuOneItems)">Option3a</a>
+                <a id="option4a" onclick="checkMenuItem(this.id, menuOneItems)">Option4a</a>
+                <a id="option5a" onclick="checkMenuItem(this.id, menuOneItems)">Option5a</a>
+            </div>
+        </div>
+        <div class="dd">
+            <button href="#" class="dbtn">Option5 <span>&#x25BE;</span></button>
+            <div class="ddc">
+                <a id="option1a" onclick="checkMenuItem(this.id, menuOneItems)">Option1a</a>
+                <a id="option2a" onclick="checkMenuItem(this.id, menuOneItems)">Option2a</a>
+                <a id="option3a" onclick="checkMenuItem(this.id, menuOneItems)">Option3a</a>
+                <a id="option4a" onclick="checkMenuItem(this.id, menuOneItems)">Option4a</a>
+                <a id="option5a" onclick="checkMenuItem(this.id, menuOneItems)">Option5a</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setMenuCookie(1);
+            createStartDialog("Option1a");
+        }
+    </script>
+    
+    <div class="pos-fixed pos-bottom-center">
+        <h1 id="task">Find: Option1a</h1>
+    </div>
+    <!-- Metro 4 -->
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+  </body>
+</html>

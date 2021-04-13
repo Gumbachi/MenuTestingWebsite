@@ -58,7 +58,8 @@ function nextTask(menu) {
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=3'))) {
             document.cookie = "menuThreeTimes=" + menuTimes;
             createEndDialog();
-            // send data to mongo db here 
+            // send data to mongo db here
+            // document.cookie.split('; ').find(row => row.startsWith('NAME_OF_COOKIE=')).split('=')[1]; // get cookie value
         }
     }
 }
@@ -72,7 +73,7 @@ function setMenuCookie(currentMenu) {
 function createStartDialog(task) {
     Metro.dialog.create({
         title: "Start Experiment",
-        content: "<h3 id=\"task2\">Find:" + task + "</h3>",
+        content: "<h3 id=\"task2\">Find: " + task + "</h3>",
         actions: [
             {
                 caption: "Start",
