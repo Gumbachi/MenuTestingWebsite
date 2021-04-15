@@ -51,17 +51,48 @@ function nextTask(menu) {
         getFinalTime();
         if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=1'))) {
             document.cookie = "menuOneTimes=" + menuTimes;
-            window.location.href = "menu2.html";
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
+            if (!menuPaths.length) {
+                createEndDialog();
+                sendData();
+            } else {
+                nextPage();
+            }
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=2'))) {
             document.cookie = "menuTwoTimes=" + menuTimes;
-            window.location.href = "menu3.html";
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
+            if (!menuPaths.length) {
+                createEndDialog();
+                sendData();
+            } else {
+                nextPage();
+            }
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=3'))) {
             document.cookie = "menuThreeTimes=" + menuTimes;
-            createEndDialog();
-            // send data to mongo db here
-            // document.cookie.split('; ').find(row => row.startsWith('NAME_OF_COOKIE=')).split('=')[1]; // get cookie value
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
+            if (!menuPaths.length) {
+                createEndDialog();
+                sendData();
+            } else {
+                nextPage();
+            }
+        } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=4'))) {
+            document.cookie = "menuFourTimes=" + menuTimes;
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
+            if (!menuPaths.length) {
+                createEndDialog();
+                sendData();
+            } else {
+                nextPage();
+            }
         }
     }
+}
+
+function sendData() {
+    // send data to mongo db here
+    // document.cookie.split('; ').find(row => row.startsWith('NAME_OF_COOKIE=')).split('=')[1]; // get cookie value
+    // .split(",") to convert back into array
 }
 
 function setMenuCookie(currentMenu) {
@@ -94,3 +125,34 @@ function createEndDialog() {
         closeButton: true
     });
 }
+
+// https://stackoverflow.com/questions/60662796/shuffle-array-in-js
+function shuffle(arr) {
+    var j, x, index;
+    for (index = arr.length - 1; index > 0; index--) {
+        j = Math.floor(Math.random() * (index + 1));
+        x = arr[index];
+        arr[index] = arr[j];
+        arr[j] = x;
+    }
+    return arr;
+}
+
+function nextPage() {
+    var menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+    console.log(menuPaths);
+
+    splitMenuPaths = menuPaths.split(",");
+
+    console.log(splitMenuPaths);
+    
+    shuffledMenuPaths = shuffle(splitMenuPaths);
+
+    console.log(shuffledMenuPaths);
+
+    nextMenu = shuffledMenuPaths.pop();
+
+    document.cookie = "menuPaths=" + shuffledMenuPaths;
+
+    window.location.href = nextMenu;
+  }
