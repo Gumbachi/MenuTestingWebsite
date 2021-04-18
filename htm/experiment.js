@@ -1,6 +1,7 @@
-let menuOneItems = ["Option1a", "Option2c", "Option4d", "Option5e", "Option1e", "Option3c", "Option4a", "Option2a", "Option2b", "Option3b"];
+let menuOneItems = ["Sandwiches", "Ice Cream", "Milkshakes", "Contact", "Pie", "Pork", "Sides", "Locations", "Alcohol", "Other"];
 let menuTwoItems = [];
 let menuThreeItems = ["Option 2d", "Option 1e", "Option 2c", "Option 5a", "Option 4e", "Option 3b", "Option 5a", "Option 1d", "Option 4c", "Option 4a"];
+let menuFourItems = ["Shirts", "Music", "Tvs", "Novels", "Shorts", "Online Books", "Computer Accessories", "Textbooks", "Cameras", "Games"];
 var taskNumber = 0;
 var startTime;
 var endTime;
@@ -140,15 +141,10 @@ function shuffle(arr) {
 
 function nextPage() {
     var menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
-    console.log(menuPaths);
 
-    splitMenuPaths = menuPaths.split(",");
-
-    console.log(splitMenuPaths);
+    var splitMenuPaths = menuPaths.split(",");
     
     shuffledMenuPaths = shuffle(splitMenuPaths);
-
-    console.log(shuffledMenuPaths);
 
     nextMenu = shuffledMenuPaths.pop();
 
