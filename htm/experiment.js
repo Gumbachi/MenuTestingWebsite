@@ -46,14 +46,13 @@ function nextTask(menu) {
         getFinalTime();
         taskNumber++;
         document.getElementById("task").innerHTML = "Task: " + menu[taskNumber];
-        createStartDialog();
-        document.getElementById("task2").innerHTML = "Task: " + menu[taskNumber];
+        createStartDialog(menu[taskNumber]);
     } else {
         getFinalTime();
         if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=1'))) {
             document.cookie = "menuOneTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+            if (menuPaths.length === 0) {
                 createEndDialog();
                 sendData();
             } else {
@@ -61,8 +60,8 @@ function nextTask(menu) {
             }
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=2'))) {
             document.cookie = "menuTwoTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+            if (menuPaths.length === 0) {
                 createEndDialog();
                 sendData();
             } else {
@@ -70,8 +69,8 @@ function nextTask(menu) {
             }
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=3'))) {
             document.cookie = "menuThreeTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+            if (menuPaths.length === 0) {
                 createEndDialog();
                 sendData();
             } else {
@@ -79,8 +78,8 @@ function nextTask(menu) {
             }
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=4'))) {
             document.cookie = "menuFourTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
+            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+            if (menuPaths.length === 0) {
                 createEndDialog();
                 sendData();
             } else {
