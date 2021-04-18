@@ -46,46 +46,21 @@ function nextTask(menu) {
         getFinalTime();
         taskNumber++;
         document.getElementById("task").innerHTML = "Task: " + menu[taskNumber];
-        createStartDialog();
-        document.getElementById("task2").innerHTML = "Task: " + menu[taskNumber];
+        createStartDialog(menu[taskNumber]);
     } else {
         getFinalTime();
         if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=1'))) {
             document.cookie = "menuOneTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
-                createEndDialog();
-                sendData();
-            } else {
-                nextPage();
-            }
+            endOrNextMenu()
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=2'))) {
             document.cookie = "menuTwoTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
-                createEndDialog();
-                sendData();
-            } else {
-                nextPage();
-            }
+            endOrNextMenu()
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=3'))) {
             document.cookie = "menuThreeTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
-                createEndDialog();
-                sendData();
-            } else {
-                nextPage();
-            }
+            endOrNextMenu()
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=4'))) {
             document.cookie = "menuFourTimes=" + menuTimes;
-            menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1].split(",");
-            if (!menuPaths.length) {
-                createEndDialog();
-                sendData();
-            } else {
-                nextPage();
-            }
+            endOrNextMenu()
         }
     }
 }
@@ -93,6 +68,16 @@ function nextTask(menu) {
 function readCookieArray(cookieName) {
     let arraystr = document.cookie.split('; ').find(row => row.startsWith(cookieName)).split('=')[1]; // get cookie value
     return arraystr.split(","); // to convert back into array
+}
+
+function endOrNextMenu() {
+    menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+    if (menuPaths.length === 0) {
+        createEndDialog();
+        sendData();
+    } else {
+        nextPage();
+    }
 }
 
 function sendData() {
