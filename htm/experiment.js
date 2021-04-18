@@ -136,4 +136,4 @@ function nextPage() {
     document.cookie = "menuPaths=" + shuffledMenuPaths;
 
     window.location.href = nextMenu;
-  }
+}
