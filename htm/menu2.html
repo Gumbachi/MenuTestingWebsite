@@ -4,78 +4,93 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+	<script src="experiment.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <!-- Metro 4 -->
 	<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+	<!-- css from https://phppot.com/css/multilevel-dropdown-menu-with-pure-css/  -->
+    <style> 
+		.parent {font-size:16px;display: block;position: relative;float: left;line-height: 30px; padding: 16px;}
+		.parent a{margin: 10px;color: black;text-decoration: none;}
+		.child li li:hover{background-color: lightgrey;}
+		.parent:hover{background-color: lightgrey;}
+		.li:hover{background-color: lightgrey;}
+		.parent:hover > ul {display:block;position:absolute;right:0px;}
+		.child {display: none;position: relative;}
+		.child li {list-style-type: none;line-height: 30px;height: 100%;width:100%;display: inline-block;padding: 16px;}
+		.parent li a{color: black};
+		.child li a{color: #000000;padding: 12px 16px;}
+		ul{list-style: none;margin: 0;padding: 0px; min-width:10em;}
+		ul ul ul{left: 81%;top: 0;margin-left:0px;}
+		.expand{font-size:16px;float:right;margin-right:5px;}
+		.child li:hover{background-color: lightgrey;}
+		.child a{}
+		
+	</style>
 	<script src="experiment.js"></script>
-	<script src="https://smtpjs.com/v3/smtp.js"></script>
   </head>
   <body>
-	<div class="pos-fixed pos-top-center">
-        <ul class="h-menu">
-            <li>
-                <a href="#" class="dropdown-toggle">Computers</a>
-                <ul class="d-menu" data-role="dropdown">
-                    <li><a id="option1a" onclick="checkMenuItem(this.id, menuTwoItems)">Desktops</a></li>
-                    <li>
-						<a href="#" class="dropdown-toggle">Laptops</a>
-						<ul class="d-menu" data-role="dropdown">
-							<li><a id="option2a" onclick="checkMenuItem(this.id, menuTwoItems)">Touchscreen</a></li>
-							<li><a id="option3a" onclick="checkMenuItem(this.id, menuTwoItems)">No Touchscreen</a></li>
-						</ul>
-					</li>
-                    <li><a id="option4a" onclick="checkMenuItem(this.id, menuTwoItems)">Tablets</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" class="dropdown-toggle">Accessories</a>
-                <ul class="d-menu" data-role="dropdown">
-                    <li>
-						<li>
-							<a href="#" class="dropdown-toggle">Audio</a>
-							<ul class="d-menu" data-role="dropdown">
-								<li><a id="option1b" onclick="checkMenuItem(this.id, menuTwoItems)">Headphones</a></li>
-								<li><a id="option2b" onclick="checkMenuItem(this.id, menuTwoItems)">Earbuds</a></li>
-								<li><a id="option3b" onclick="checkMenuItem(this.id, menuTwoItems)">Speakers</a></li>
-							</ul>
-						</li>
-					</li>
-                    <li><a id="option4b" onclick="checkMenuItem(this.id, menuTwoItems)">Mice</a></li>
-                    <li><a id="option5b" onclick="checkMenuItem(this.id, menuTwoItems)">Keyboards</a></li>
-                    <li><a id="option6b" onclick="checkMenuItem(this.id, menuTwoItems)">Monitors</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" class="dropdown-toggle">Computer Parts</a>
-                <ul class="d-menu" data-role="dropdown">
-                    <li><a id="option1c" onclick="checkMenuItem(this.id, menuTwoItems)">Ram</a></li>
-                    <li><a id="option2c" onclick="checkMenuItem(this.id, menuTwoItems)">CPU</a></li>
-                    <li>
-						<li>
-							<a href="#" class="dropdown-toggle">Storage</a>
-							<ul class="d-menu" data-role="dropdown">
-								<li><a id="option3c" onclick="checkMenuItem(this.id, menuTwoItems)">Hard Drive</a></li>
-								<li><a id="option4c" onclick="checkMenuItem(this.id, menuTwoItems)">SSD</a></li>
-							</ul>
-						</li>
-					</li>
-					<li><a id="option5c" onclick="checkMenuItem(this.id, menuTwoItems)">GPU</a></li>
-                </ul>
-            </li>
-        </ul>
+    <div class="pos-fixed pos-top-center">
+        <ul id="menu">
+	<li class="parent"><a href="#">Transportation</a>
+	<ul class="child">
+		<li class="parent"><a href="#">Vehicles<span class="expand">&raquo;</span></a>
+			<ul class="child">
+			<li><a href="#" id="option1a" onclick="checkMenuItem(this.id, menuTwoItems)">Cars</a></li>
+			<li><a href="#" id="option1b" onclick="checkMenuItem(this.id, menuTwoItems)">Trucks</a></li>
+			<li><a href="#" id="option1c" onclick="checkMenuItem(this.id, menuTwoItems)">Motorcycle</a></li>
+			</ul>
+		</li>
+		<li><a href="#" id="option1d" onclick="checkMenuItem(this.id, menuTwoItems)">Boats</a></li>
+		<li class="parent"><a href="#">Aircraft<span class="expand">&raquo;</span></a>
+		<ul class="child">
+			<li><a href="#" id="option1e" onclick="checkMenuItem(this.id, menuTwoItems)">Planes</a></li>
+			<li><a href="#" id="option1f" onclick="checkMenuItem(this.id, menuTwoItems)">Helicopters</a></li>
+			</ul>
+	</ul>
+	</li>
+	<li class="parent"><a href="#">Instruments</a>
+	<ul class="child">			
+		<li><a href="#" id="option2a" onclick="checkMenuItem(this.id, menuTwoItems)">Drums</a></li>
+		<li><a href="#" id="option2b" onclick="checkMenuItem(this.id, menuTwoItems)">Piano</a></li>
+		<li class="parent"><a href="#">Guitars<span class="expand">&raquo;</span></a>
+			<ul class="child">
+			<li><a href="#" id="option2c" onclick="checkMenuItem(this.id, menuTwoItems)">Bass</a></li>
+			<li><a href="#" id="option2d" onclick="checkMenuItem(this.id, menuTwoItems)">Acoustic</a></li>
+			</ul>
+		</li>
+		<li><a href="#" id="option2e" onclick="checkMenuItem(this.id, menuTwoItems)">Saxophone</a></li>
+	</ul>
+	</li>
+	<li class="parent"><a href="#">Dishes</a>
+	<ul class="child">			
+		<li><a href="#" id="option3a" onclick="checkMenuItem(this.id, menuTwoItems)">Plates</a></li>
+		<li class="parent"><a href="#">Utensils<span class="expand">&raquo;</span></a>
+			<ul class="child">
+			<li><a href="#" id="option3b" onclick="checkMenuItem(this.id, menuTwoItems)">Forks</a></li>
+			<li><a href="#" id="option3c" onclick="checkMenuItem(this.id, menuTwoItems)">Knives</a></li>
+			<li><a href="#" id="option3d" onclick="checkMenuItem(this.id, menuTwoItems)">Spoons</a></li>
+			</ul>
+		</li>
+		</li>
+	</ul>
+	</li>
+</ul>
     </div>
-
+    
     <script>
         window.onload = function() {
             setMenuCookie(2);
-            createStartDialog("Ram");
+            createStartDialog("Plates");
         }
     </script>
 
     <div class="pos-fixed pos-bottom-center">
-        <h1 id="task">Find: Ram</h1>
+        <h1>Find: Plates</h1>
     </div>
-
+	<div class="pos-fixed pos-bottom-right">
+		<a class="button primary" href="menu3.html">Next</a>
+	</div>
     <!-- Metro 4 -->
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
   </body>
