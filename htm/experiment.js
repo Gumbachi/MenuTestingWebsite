@@ -1,6 +1,6 @@
 let menuOneItems = ["Sandwiches", "Ice Cream", "Milkshakes", "Contact", "Pie", "Pork", "Sides", "Locations", "Alcohol", "Other"];
 let menuTwoItems = ["Ram", "Headphones", "Touchscreen", "Monitors", "Desktops", "SSD", "Speakers", "Mice", "CPU", "Tablets"];
-let menuThreeItems = ["Option 2d", "Option 1e", "Option 2c", "Option 5a", "Option 4e", "Option 3b", "Option 5a", "Option 1d", "Option 4c", "Option 4a"];
+let menuThreeItems = ["Football", "Shoes", "Baseball", "News", "Kids", "Contact", "Jackets", "Tennis", "Shoes", "Tops"];
 let menuFourItems = ["Shirts", "Music", "Tvs", "Novels", "Shorts", "Online Books", "Computer Accessories", "Textbooks", "Cameras", "Games"];
 var taskNumber = 0;
 var startTime;
