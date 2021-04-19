@@ -1,5 +1,5 @@
 let menuOneItems = ["Sandwiches", "Ice Cream", "Milkshakes", "Contact", "Pie", "Pork", "Sides", "Locations", "Alcohol", "Other"];
-let menuTwoItems = ["Ram", "Headphones", "Touchscreen", "Monitors", "Desktops", "SDD", "Speakers", "Mice", "CPU", "Tablets"];
+let menuTwoItems = ["Ram", "Headphones", "Touchscreen", "Monitors", "Desktops", "SSD", "Speakers", "Mice", "CPU", "Tablets"];
 let menuThreeItems = ["Option 2d", "Option 1e", "Option 2c", "Option 5a", "Option 4e", "Option 3b", "Option 5a", "Option 1d", "Option 4c", "Option 4a"];
 let menuFourItems = ["Shirts", "Music", "Tvs", "Novels", "Shorts", "Online Books", "Computer Accessories", "Textbooks", "Cameras", "Games"];
 var taskNumber = 0;
@@ -51,16 +51,16 @@ function nextTask(menu) {
         getFinalTime();
         if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=1'))) {
             document.cookie = "menuOneTimes=" + menuTimes;
-            endOrNextMenu()
+            endOrNextMenu();
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=2'))) {
             document.cookie = "menuTwoTimes=" + menuTimes;
-            endOrNextMenu()
+            endOrNextMenu();
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=3'))) {
             document.cookie = "menuThreeTimes=" + menuTimes;
-            endOrNextMenu()
+            endOrNextMenu();
         } else if (document.cookie.split(';').some((item) => item.includes('currentMenuCookie=4'))) {
             document.cookie = "menuFourTimes=" + menuTimes;
-            endOrNextMenu()
+            endOrNextMenu();
         }
     }
 }
@@ -110,7 +110,7 @@ function sendData() {
 
 
 function endOrNextMenu() {
-    var menuPaths = getCookieData('menuPaths=')
+    var menuPaths = getCookieData('menuPaths=');
     if (menuPaths.length === 0) {
         createEndDialog();
         sendData();
@@ -163,7 +163,7 @@ function shuffle(arr) {
 }
 
 function nextPage() {
-    var menuPaths = getCookieData('menuPaths=')
+    var menuPaths = getCookieData('menuPaths=');
 
     var splitMenuPaths = menuPaths.split(",");
     
