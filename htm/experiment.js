@@ -34,7 +34,7 @@ function getEndTimeSeconds() {
 // add to menuTimes array
 function getFinalTime() {
    finalTime = endTime - startTime;
-   menuTimes.push(finalTime);
+   menuTimes.push(finalTime.toFixed(3));
 }
 
 // go to next task
@@ -65,12 +65,16 @@ function nextTask(menu) {
     }
 }
 
+function getCookieData(name) {
+    return document.cookie.split('; ').find(row => row.startsWith(name)).split('=')[1];
+}
+
 function sendData() {
-    var surveyData = document.cookie.split('; ').find(row => row.startsWith('surveyData=')).split('=')[1];
-    var menuOne = document.cookie.split('; ').find(row => row.startsWith('menuOneTimes=')).split('=')[1];
-    //var menuTwo = document.cookie.split('; ').find(row => row.startsWith('menuTwoTimes=')).split('=')[1];
-    var menuThree = document.cookie.split('; ').find(row => row.startsWith('menuThreeTimes=')).split('=')[1];
-    var menuFour = document.cookie.split('; ').find(row => row.startsWith('menuFourTimes=')).split('=')[1];
+    var surveyData = getCookieData('surveyData=').split(',');
+    var menuOne = getCookieData('menuOneTimes=');
+    //var menuTwo = getCookieData('menuTwoTimes=');
+    var menuThree = getCookieData('menuThreeTimes=');
+    var menuFour = getCookieData('menuFourTimes=');
 
     Email.send({
         Host: "smtp.gmail.com",
@@ -79,13 +83,34 @@ function sendData() {
         To: 'menutesting123@gmail.com',
         From: "menutesting123@gmail.com",
         Subject: "User Data",
-        Body: "Survey Data = " + surveyData + "\nMenu 1 Times = " + menuOne + "\nMenu 3 Times = " + menuThree + "\nMenu 4 Times = " + menuFour
+        Body:   "<table style=\"text-align: center\">" +
+                "<tr>" + 
+                "<th>Age</th>" + 
+                "<th>Gender</th>" + 
+                "<th>Control Device</th>" +
+                "<th>Computer Experience</th>" + 
+                "<th>Menu One Times</th>" + 
+                "<th>Menu Two Times</th>" + 
+                "<th>Menu Three Times</th>" + 
+                "<th>Menu Four Times</th>" + 
+                "</tr>" + 
+                "<tr>" + 
+                "<td>" + surveyData[0] + "</td>" +
+                "<td>" + surveyData[1] + "</td>" + 
+                "<td>" + surveyData[2] + "</td>" + 
+                "<td>" + surveyData[3] + "</td>" + 
+                "<td>" + menuOne + "</td>" + 
+                "<td>" + menuOne + "</td>" + 
+                "<td>" + menuThree + "</td>" + 
+                "<td>" + menuFour + "</td>" + 
+                "</tr>" +
+                "</table>"
     });
 }
 
 
 function endOrNextMenu() {
-    var menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+    var menuPaths = getCookieData('menuPaths=')
     if (menuPaths.length === 0) {
         createEndDialog();
         sendData();
@@ -138,7 +163,7 @@ function shuffle(arr) {
 }
 
 function nextPage() {
-    var menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+    var menuPaths = getCookieData('menuPaths=')
 
     var splitMenuPaths = menuPaths.split(",");
     
