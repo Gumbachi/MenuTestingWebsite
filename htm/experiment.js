@@ -65,56 +65,33 @@ function nextTask(menu) {
     }
 }
 
-function readCookieArray(cookieName) {
-    let arraystr = document.cookie.split('; ').find(row => row.startsWith(cookieName)).split('=')[1]; // get cookie value
-    return arraystr.split(","); // to convert back into array
+function sendData() {
+    var surveyData = document.cookie.split('; ').find(row => row.startsWith('surveyData=')).split('=')[1];
+    var menuOne = document.cookie.split('; ').find(row => row.startsWith('menuOneTimes=')).split('=')[1];
+    //var menuTwo = document.cookie.split('; ').find(row => row.startsWith('menuTwoTimes=')).split('=')[1];
+    var menuThree = document.cookie.split('; ').find(row => row.startsWith('menuThreeTimes=')).split('=')[1];
+    var menuFour = document.cookie.split('; ').find(row => row.startsWith('menuFourTimes=')).split('=')[1];
+
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "menutesting123@gmail.com",
+        Password: "menutesting101!",
+        To: 'menutesting123@gmail.com',
+        From: "menutesting123@gmail.com",
+        Subject: "User Data",
+        Body: "Survey Data = " + surveyData + "\nMenu 1 Times = " + menuOne + "\nMenu 3 Times = " + menuThree + "\nMenu 4 Times = " + menuFour
+    });
 }
 
+
 function endOrNextMenu() {
-    menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
+    var menuPaths = document.cookie.split('; ').find(row => row.startsWith('menuPaths=')).split('=')[1];
     if (menuPaths.length === 0) {
         createEndDialog();
         sendData();
     } else {
         nextPage();
     }
-}
-
-function sendData() {
-    // send data to mongo db here
-
-    // read survey cookie
-    let surveyData = readCookieArray("surveyData"); // to convert back into array
-
-    // read 
-    let times = ["menuOneTimes", "menuTwoTimes", "menuThreeTimes", "menuFourTimes"];
-    times.map(name => readCookieArray(name));
-
-    //Document for DB
-    const userData = {
-        age: surveryData[0],
-        gender: surveryData[1],
-        input_device: surveryData[2],
-        experience: surveryData[3],
-        m1_times: times[0],
-        m2_times: times[1],
-        m3_times: times[2],
-        m4_times: times[3]
-    };
-
-    // MongoDB stuff
-    import { MongoClient } from "mongodb";
-    const uri = "mongodb+srv://edit_priveleges:ZoCqMsZBTZID1Zq6@hci-research-cluster.ym5a0.mongodb.net/UserDB?retryWrites=true&w=majority";
-    const client = new MongoClient(uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
-    client.connect((err) => {
-        const coll = client.db("UserDB").collection("Users");
-        coll.insertOne(userData) // Insert Document hopefully
-        client.close();
-    });
-
 }
 
 function setMenuCookie(currentMenu) {
