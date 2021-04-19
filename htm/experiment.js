@@ -1,5 +1,5 @@
 let menuOneItems = ["Sandwiches", "Ice Cream", "Milkshakes", "Contact", "Pie", "Pork", "Sides", "Locations", "Alcohol", "Other"];
-let menuTwoItems = [];
+let menuTwoItems = ["Ram", "Headphones", "Touchscreen", "Monitors", "Desktops", "SDD", "Speakers", "Mice", "CPU", "Tablets"];
 let menuThreeItems = ["Option 2d", "Option 1e", "Option 2c", "Option 5a", "Option 4e", "Option 3b", "Option 5a", "Option 1d", "Option 4c", "Option 4a"];
 let menuFourItems = ["Shirts", "Music", "Tvs", "Novels", "Shorts", "Online Books", "Computer Accessories", "Textbooks", "Cameras", "Games"];
 var taskNumber = 0;
@@ -72,7 +72,7 @@ function getCookieData(name) {
 function sendData() {
     var surveyData = getCookieData('surveyData=').split(',');
     var menuOne = getCookieData('menuOneTimes=');
-    //var menuTwo = getCookieData('menuTwoTimes=');
+    var menuTwo = getCookieData('menuTwoTimes=');
     var menuThree = getCookieData('menuThreeTimes=');
     var menuFour = getCookieData('menuFourTimes=');
 
@@ -100,7 +100,7 @@ function sendData() {
                 "<td>" + surveyData[2] + "</td>" + 
                 "<td>" + surveyData[3] + "</td>" + 
                 "<td>" + menuOne + "</td>" + 
-                "<td>" + menuOne + "</td>" + 
+                "<td>" + menuTwo + "</td>" + 
                 "<td>" + menuThree + "</td>" + 
                 "<td>" + menuFour + "</td>" + 
                 "</tr>" +
