@@ -77,9 +77,7 @@ function sendData() {
     var menuFour = getCookieData('menuFourTimes=');
 
     Email.send({
-        Host: "smtp.gmail.com",
-        Username: "menutesting123@gmail.com",
-        Password: "menutesting101!",
+        SecureToken: "8fceff4b-a51c-43ea-b7f2-8d5d09fb0d4f",
         To: 'menutesting123@gmail.com',
         From: "menutesting123@gmail.com",
         Subject: "User Data",
